@@ -20,6 +20,8 @@ if ($action == 'home'){
     include './views/home.php';
 }elseif ($action == 'ac'){
     include './views/ac.php';
+}elseif ($action == 'projector'){
+    include './views/projector.php';
 }elseif ($action == 'login'){
     include './views/security/login.php';
 }elseif ($action == 'logout'){

@@ -435,6 +435,10 @@ function waiting_popup(){
 var popup = document.getElementById('waitingPopup');
     popup.style.display = "block";
 }
+function waiting_popup_menu(){
+    var popup = document.getElementById('ChooseButtonPopup');
+    popup.style.display = "block";
+}
 
 function close_waiting_popup(){
   disable_button("learning");

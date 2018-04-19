@@ -1,6 +1,6 @@
 <?php
-if(!isset($_SESSION)) {
-    session_start();
+if(empty($_SESSION['username'])) {
+    header("Location: index.php?action=login");
 }
 $username = $_SESSION['username'];
 
@@ -96,10 +96,13 @@ $mqtts = $mqttDao->findById($room_id['dashboard_id']);   //Lay so thu tu mqttpar
 				    <button onclick="AC_power_learning(1);">ON</button>
 				    <button onclick="AC_power_learning(2);">OFF</button>
 				  </div> 
-				</div>			
+				</div>
                 <div class="row">
-                    <!-- ON/OFF -->
-                    <div class="col-sm-offset-10 col-sm-2 pull-right" style="margin-top: 2%"">
+                    <div class="col-md-4 col-sm-6 margin-left" style="margin-bottom: 2%">
+                        <a class="btn btn-default" onclick='waiting_popup(), learning_onclick();' id="learning">
+                            <i class="fa fa-power-off" style="font-size:1.6em;color:black;"></i>
+                            <b style="font-size:1.5em;">Learning Code</b>
+                        </a>
                         <a class="btn btn-default" onclick='AC_power_onclick();' id="power">
                             <i class="fa fa-power-off" style="font-size:1.6em;color:black;"></i>
                             <b id="power-value" style="font-size:1.5em;">OFF</b>
@@ -170,23 +173,9 @@ $mqtts = $mqttDao->findById($room_id['dashboard_id']);   //Lay so thu tu mqttpar
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-4 col-sm-6 margin-left" style="margin-bottom: 2%">
-                        <a class="btn btn-default" onclick='waiting_popup(), learning_onclick();' id="learning">
-                            <i class="fa fa-power-off" style="font-size:1.6em;color:black;"></i>
-                            <b style="font-size:1.5em;">Learning Code</b>
-                        </a>                        
-                    </div>
-                </div>
             </div>
         </div>
         </div>
 	</div>
-	<br>
-
-	<!--
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	<script src="bootstrap/js/bootstrap.min.js"></script>
-	-->
 </body>
 </html>
