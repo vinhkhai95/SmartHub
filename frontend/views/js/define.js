@@ -30,6 +30,12 @@ var PRControl = "/PR/button";
 //button list
 var AClist = {ON: 1, OFF: 2, 18: 3,20: 4, 22: 5, 24: 6, 26: 7, 28: 8};
 var PRlist = {POWER: 1, UP: 2, DOWN: 3, MENU: 4, EXIT: 5};
+
+//IR learning
+var IRLearning 		= "/IR/learning";
+var IRLearningACK 	= "/IR/learning/ACK";
+var IRButtonList 	= "/IR/buttonlist";
+var IRButtonListACK = "/IR/buttonlist/ACK";
 function makeid()
 {
     var text = "";
