@@ -185,18 +185,6 @@ $mqtts = $mqttDao->findById($room_id['dashboard_id']);   //Lay so thu tu mqttpar
                         </div>
                     </div>
                 </div>
-<<<<<<< HEAD
-                <div class="row">
-                    <div class="col-md-4 col-sm-6 margin-left" style="margin-bottom: 2%">
-                        <a class="btn btn-default" onclick='AC_learning_onclick();' id="learning">
-                            <i class="fa fa-power-off" style="font-size:1.6em;color:black;"></i>
-                            <b style="font-size:1.5em;">Learning Code</b>
-                        </a>                        
-                    </div>
-                </div>
-=======
->>>>>>> 9b269ed69811821ecbf46e47c11f71d616618286
-            </div>
         </div>
         </div>
 	</div>

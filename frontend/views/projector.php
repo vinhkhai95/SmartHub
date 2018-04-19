@@ -110,8 +110,8 @@ $mqtts = $mqttDao->findById($room_id['dashboard_id']);   //Lay so thu tu mqttpar
                 </div>
                 <div class="row">
                     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 margin-left-button" id="target_temp_col">
-                        <div class="btn-group-vertical">
-                            <div class="row">
+                        <div class="btn-group-vertical" style="margin-left: 5%;">
+                            <div class="row" style="margin-bottom:5%">
                                 <div class="col-sm-4 col-sm-4 col-md-4 col-xs-4"></div>
                                 <div class="col-sm-4 col-sm-4 col-md-4 col-xs-4">
                                     <a class="btn btn-default temp-step-btn button" id="temp_step_up" onclick='AC_step_temp_onclick("up");'>
@@ -120,7 +120,7 @@ $mqtts = $mqttDao->findById($room_id['dashboard_id']);   //Lay so thu tu mqttpar
                                 </div>
                                 <div class="col-sm-4 col-sm-4 col-md-4 col-xs-4"></div>
                             </div>
-                            <div class="row">
+                            <div class="row" style="margin-bottom:5%">
                                 <div class="col-sm-4 col-lg-4 col-md-4 col-xs-4">
                                 <a class="btn btn-default temp-step-btn button" id="temp_step_left" onclick='AC_step_temp_onclick("down");'>
                                     <i class="fa fa-chevron-left"></i>
@@ -137,7 +137,7 @@ $mqtts = $mqttDao->findById($room_id['dashboard_id']);   //Lay so thu tu mqttpar
                                 </a>
                             </div>
                             </div>
-                            <div class="row">
+                            <div class="row" style="margin-bottom:5%">
                                 <div class="col-sm-4 col-sm-4 col-md-4 col-xs-4"></div>
                                 <div class="col-sm-4 col-sm-4 col-md-4 col-xs-4">
                                     <a class="btn btn-default temp-step-btn button" id="temp_step_down" onclick='AC_step_temp_onclick("down");'>
@@ -150,13 +150,11 @@ $mqtts = $mqttDao->findById($room_id['dashboard_id']);   //Lay so thu tu mqttpar
                     </div>
                     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 margin-left-menu">
                         <a class="btn btn-default" onclick='waiting_popup_menu(), learning_onclick();' id="learning">
-                            <i class="fa fa-power-off" style="font-size:1.6em;color:black;"></i>
                             <b style="font-size:1.5em;">MENU</b>
                         </a>
                     </div>
                     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 margin-left-exit">
                         <a class="btn btn-default" onclick='waiting_popup_menu(), learning_onclick();' id="learning">
-                            <i class="fa fa-power-off" style="font-size:1.6em;color:black;"></i>
                             <b style="font-size:1.5em;">EXIT</b>
                         </a>
                     </div>
