@@ -89,12 +89,24 @@ $mqtts = $mqttDao->findById($room_id['dashboard_id']);   //Lay so thu tu mqttpar
 				</div>		
 				<div id="ChooseButtonPopup" class="popup">
 				  <!-- Modal content -->
-				  <div class="popup-content">
+				  <div class="popup-content"  style="font-size: 19px">
 				    <p>Please choose the button to be learn.				   
 				    </p>
 				    <!-- <button onclick="close_choose_button_popup();">OK</button> -->
-				    <button onclick="AC_power_learning(1);">ON</button>
-				    <button onclick="AC_power_learning(2);">OFF</button>
+<!-- 				    <button onclick="AC_power_learning(1);">ON</button>
+				    <button onclick="AC_power_learning(2);">OFF</button> -->
+                    <select id="ACPowerButtonList" class="selectpicker">
+                        <option label="buttonlist">Button List</option>
+                        <option>ON</option>
+                        <option>OFF</option>
+                        <option>18 &#x2103</option>
+                        <option>20 &#x2103</option>
+                        <option>22 &#x2103</option>
+                        <option>24 &#x2103</option>
+                        <option>26 &#x2103</option>
+                        <option>28 &#x2103</option>
+                    </select>  
+                    <button type="button" class="btn btn-info" onclick="AC_get_button_learning();">OK</button>            
 				  </div> 
 				</div>			
                 <div class="row">
@@ -172,7 +184,7 @@ $mqtts = $mqttDao->findById($room_id['dashboard_id']);   //Lay so thu tu mqttpar
                 </div>
                 <div class="row">
                     <div class="col-md-4 col-sm-6 margin-left" style="margin-bottom: 2%">
-                        <a class="btn btn-default" onclick='waiting_popup(), learning_onclick();' id="learning">
+                        <a class="btn btn-default" onclick='AC_learning_onclick();' id="learning">
                             <i class="fa fa-power-off" style="font-size:1.6em;color:black;"></i>
                             <b style="font-size:1.5em;">Learning Code</b>
                         </a>                        

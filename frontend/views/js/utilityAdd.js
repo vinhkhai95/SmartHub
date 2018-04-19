@@ -1,15 +1,19 @@
 //Create a client instance
 client = null;
 connected = false;
-var topicControlDevice = "Room"+room_id+switchControl;  //"Room1/remote/"
-var topicTemp = "Room"+room_id+Temp;
-var topicPir = "Room"+room_id+Pir;
-var topicLightSensor = "Room"+room_id+Light;
+var topicControlDevice  = "Room"+room_id+switchControl;  //"Room1/remote/"
+var topicTemp           = "Room"+room_id+Temp;
+var topicPir            = "Room"+room_id+Pir;
+var topicLightSensor    = "Room"+room_id+Light;
 
 
-//New for IR features
-var topicControlAC = "Room"+room_id+ACControl;
-var topicControlPR = "Room"+room_id+PRControl;
+//For IR features
+var topicControlAC       = "Room"+room_id+ACControl;
+var topicControlPR       = "Room"+room_id+PRControl;
+var topicIRLearning      = "Room"+room_id+IRLearning;
+var topicIRLearningACK   = "Room"+room_id+IRLearningACK;
+var topicIRButtonList    = "Room"+room_id+IRButtonList;
+var topicIRButtonListACK = "Room"+room_id+IRButtonListACK;
 
 // called when the client connects
 function onConnect(context) {
@@ -28,6 +32,10 @@ function onConnect(context) {
     subscribe(topicLightSensor, 1);
     subscribe(topicControlAC, 1);
     subscribe(topicControlPR, 1);
+    // subscribe(topicIRLearning, 1);
+    subscribe(topicIRLearningACK, 1);
+    // subscribe(topicIRButtonList, 1);
+    subscribe(topicIRButtonListACK, 1);
   connected = true;
 }
 
@@ -71,7 +79,6 @@ function onMessageArrived(message) {
 
   }
   if(topic.indexOf(topicControlAC) != -1){   
-    console.log(payload);
     checkACArrived(payload);
   }
   if(topic==topicPir){
@@ -91,6 +98,13 @@ function onMessageArrived(message) {
           var point = $('#container-speed').highcharts().series[0].points[0];
           point.update(parseInt(message.payloadString));
       }
+  }
+  if((topic == topicIRLearningACK)){
+    if(payload =="1") {
+      close_waiting_popup();
+      choose_button_popup();
+    }
+    else close_waiting_popup();
   }
 }
 
@@ -144,6 +158,15 @@ function publish(topic, message){
     newMessage.destinationName = topic;
     newMessage.qos = qos;
     newMessage.retained = retain;
+    client.send(newMessage);
+}
+
+function publishNoRetain(topic, message){
+    console.info('Publishing Message: Topic: ', topic, '. QoS: ' + qos + '. Message: ', message);
+    newMessage = new Paho.MQTT.Message(message);
+    newMessage.destinationName = topic;
+    newMessage.qos = qos;
+    newMessage.retained = false;
     client.send(newMessage);
 }
 
@@ -414,21 +437,19 @@ function AC_step_temp_onclick(mode) {
   }
 }
 
-function AC_power_learning(power_mode){
-    switch(power_mode){
-      case 1:
-        publish("IR/Buttonlist", "1");
-        break;
-      case 2:
-        publish("IR/Buttonlist", "2");
-        break;
-  }
+function AC_get_button_learning(){
+  var x = document.getElementById("ACPowerButtonList").selectedIndex;
+  var y = document.getElementById("ACPowerButtonList").options;  
+  var button = y[x].index;
   close_choose_button_popup();
+  console.log(button);
+  publishNoRetain(topicIRButtonList, button.toString());
 }
 
 function AC_learning_onclick(){
   enable_button("learning");
-  publish("IR/Learning", "1");
+  publishNoRetain(IRLearning, "1");
+  waiting_popup();
 }
 
 function waiting_popup(){
