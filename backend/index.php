@@ -32,7 +32,9 @@ if ($action == 'login'){
     $username = $_POST['username'];
     $password = $_POST['password'];
     if ($userDao->checkLogin($username, $password)){
-        header('Location: index.php');
+        session_start();
+        $_SESSION['username'] = $username;
+        header("Location: index.php");
     }else{
         $msg = "Invalid username or password";
         include './views/security/login.php';

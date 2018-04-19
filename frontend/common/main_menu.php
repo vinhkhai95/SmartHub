@@ -2,7 +2,7 @@
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <a href="index.php?action=home">Main Dashboard</a>
     <a href="index.php?action=ac">AC Dashboard</a>
-    <a href="index.php?action=login">
+    <a href="index.php?action=logout">
         <button type="button" class="btn btn-danger">Log out</button>
     </a>
 </div>

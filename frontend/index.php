@@ -9,7 +9,7 @@ require '../models/data/LastpresenceDao.php';
 require '../models/data/MqttDao.php';
 require '../models/Mqtt.php';
 require '../Utilities/UploadFileHelper.php';
-
+session_start();
 $action = 'list';
 if (isset($_POST['action'])) {
     $action = $_POST['action'];
@@ -22,12 +22,15 @@ if ($action == 'home'){
     include './views/ac.php';
 }elseif ($action == 'login'){
     include './views/security/login.php';
+}elseif ($action == 'logout'){
+    session_destroy();
+    header("Location: index.php?action=login");
 }elseif ($action == 'login_check'){
     $customerDao = new com\loabten\model\data\UserDao(com\loabten\model\data\DatabaseUtils::connect());
     $username = $_POST['username'];
     $password = $_POST['password'];
     if ($customerDao->checkLoginuser($username, $password)){
-        session_start();
+
         $_SESSION['username'] = $username;
         header("Location: index.php?action=home");
     }else{
