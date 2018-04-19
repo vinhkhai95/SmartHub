@@ -1,0 +1,10 @@
+.light-bulb-off {
+position: absolute;
+width: 110px;
+height: 110px;
+top: 11%;
+left: 40%;
+background: url(https://lh4.googleusercontent.com/-katLGTSCm2Q/UJC0_N7XCrI/AAAAAAAABq0/6GxNfNW-Ra4/s300/lightbulb.png) no-repeat -150px 0;
+cursor: move;
+z-index: 800;
+}

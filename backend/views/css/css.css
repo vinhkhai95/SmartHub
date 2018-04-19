@@ -1,0 +1,56 @@
+.modal-body {
+	padding: auto;
+	border: 50px 50px;
+}
+#add_light{
+	position: relative;
+	cursor:pointer;
+	padding: auto;
+}
+#add_fan{
+	position: relative;
+	cursor:pointer;
+	float: left;
+}
+#add_air{
+	position: relative;
+	cursor:pointer;
+	float: left;
+}
+img {
+	width: 150px;
+	height: 150px;
+}
+.text {
+	position: relative;
+	font-size: 15px;
+	text-align: center;
+}
+.w3-button {
+	position: relative;
+  	top: 45px;
+  	left: 62px;
+}
+.selection {
+	position: absolute;
+	top: 32%;
+    left: 80%;
+}
+.value {
+	font-weight: 700;
+}
+.addmore {
+	position: relative;
+	top: 10px;
+  	left: 45px;
+}
+.border {
+	width: 100px;
+	height: 100px;
+}
+#delete {
+	position: relative;
+	top: 45%;
+	left: 50%;
+	margin: -40px 75px; 
+}
