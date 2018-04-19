@@ -36,7 +36,7 @@ try {
         $timeout= 3;
         $cleansession = 0;
         $qos = 0;
-        $retain = 0;
+        $retain = 1;
 
         $mqtt = new com\loabten\model\Mqtt();
 
