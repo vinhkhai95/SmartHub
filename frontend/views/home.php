@@ -1,7 +1,5 @@
 <?php
-if(empty($_SESSION['username'])) {
-    header("Location: index.php?action=login");
-}
+
 $username = $_SESSION['username'];
 
 $deviceDao = new com\loabten\model\data\DeviceDao(com\loabten\model\data\DatabaseUtils::connect());

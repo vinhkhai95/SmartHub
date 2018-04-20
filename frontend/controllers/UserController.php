@@ -1,11 +1,12 @@
 <?php
 
 try {
-    $lastpresenceDao = new com\loabten\model\data\LastpresenceDao(com\loabten\model\data\DatabaseUtils::connect());
-    if ($action == 'add_presence'){
-        $room_id = $_POST['room_id'];
-        $time = $_POST['time'];
-        $result = $lastpresenceDao->insert($room_id,$time);
+    if ($action == 'ac'){
+        include './views/ac.php';
+    }elseif ($action == 'projector'){
+        include './views/projector.php';
+    }else {
+        include './views/home.php';
     }
 } catch (Exception $exc) {
     $error = $exc->getMessage();

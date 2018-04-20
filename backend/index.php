@@ -13,8 +13,9 @@ require '../models/MQTT.php';
 require '../models/data/MqttDao.php';
 require '../models/Lab.php';
 require '../models/data/LabDao.php';
+
 $action = "list";
-//asdsd
+
 if (isset($_POST['action'])) {
     $action = $_POST['action'];
 }elseif (isset($_GET['action'])) {
